@@ -34,13 +34,14 @@ it('can fetch a list of comments and display them', (done) => {
 
     // Expect to find a list of comments!
 
-    setTimeout(() => {
+    moxios.wait(() => {
         wrapped.update();
 
         expect(wrapped.find('li').length).toEqual(2);
 
         done();
-    }, 100)
+        wrapped.unmount();
+    });
 
 
 })
